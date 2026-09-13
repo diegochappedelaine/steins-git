@@ -9,6 +9,17 @@ updates:
     commit-message:
       prefix: "chore"
       include: "scope"
+    ignore:
+      # typescript-eslint does not support TypeScript 7 yet
+      # (https://github.com/typescript-eslint/typescript-eslint/issues/10940)
+      - dependency-name: "typescript"
+        update-types: ["version-update:semver-major"]
+      # Tailwind CSS 4 needs a dedicated migration (CSS-first config, @tailwindcss/postcss)
+      - dependency-name: "tailwindcss"
+        update-types: ["version-update:semver-major"]
+      # tailwind-merge 3 targets Tailwind CSS 4; keep 2.x while on Tailwind 3
+      - dependency-name: "tailwind-merge"
+        update-types: ["version-update:semver-major"]
     groups:
       minor-and-patch:
         patterns:
