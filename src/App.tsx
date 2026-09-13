@@ -29,13 +29,13 @@ import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 
 const FormSchema = z.object({
   date: z.date({
-    required_error: 'A date is required.',
+    error: 'A date is required.',
   }),
   time: z.string({
-    required_error: 'A time is required.',
+    error: 'A time is required.',
   }),
   message: z.string({
-    required_error: 'A commit message is required.',
+    error: 'A commit message is required.',
   }),
 });
 
@@ -104,7 +104,7 @@ const App = () => {
                       disabled={(date) =>
                         date > new Date() || date < new Date('1900-01-01')
                       }
-                      initialFocus
+                      autoFocus
                     />
                   </PopoverContent>
                 </Popover>
